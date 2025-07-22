@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Dropizo</title>
+    <meta
+      name="description"
+      content="Learn more about Dropizo - your trusted all-in-one media downloader."
+    />
+    <link rel="icon" href="../static/assets/logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(to right, #e0f7fa, #f1f8ff);
+      }
+    </style>
+  </head>
+  <body class="text-gray-800 font-sans">  
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-3">
+          <img src="../static/assets/logo.png" alt="Dropizo Logo" class="w-10 h-10" />
+          <h1 class="text-2xl font-extrabold text-blue-700 tracking-tight">
+            Dropizo
+          </h1>
+        </div>
+        <nav class="hidden md:flex gap-6 text-gray-600 font-medium">
+          <a href="index.html" class="hover:text-blue-600">Home</a>
+          <a href="about.html" class="text-blue-600 font-semibold">About</a>
+          <a href="contact.html" class="hover:text-blue-600">Contact</a>
+          <a href="privacy.html" class="hover:text-blue-600">Privacy</a>
+          <a href="terms.html" class="hover:text-blue-600">Terms</a>
+        </nav>
+        <div class="md:hidden">
+          <button id="menuToggle" class="text-blue-700 focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-7 h-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobileMenu"
+        class="md:hidden hidden px-4 pb-4 bg-white border-t border-gray-100 shadow"
+      >
+        <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="block py-2 text-blue-600 font-semibold"
+          >About</a
+        >
+        <a
+          href="contact.html"
+          class="block py-2 text-gray-700 hover:text-blue-600"
+          >Contact</a
+        >
+        <a
+          href="privacy.html"
+          class="block py-2 text-gray-700 hover:text-blue-600"
+          >Privacy</a
+        >
+        <a
+          href="terms.html"
+          class="block py-2 text-gray-700 hover:text-blue-600"
+          >Terms</a
+        >
+      </div>
+    </header>
+
+    <script>
+      document.getElementById("menuToggle").addEventListener("click", () => {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      });
+    </script>
+
+    <!-- About Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-4xl font-extrabold text-blue-800 mb-6 text-center">
+        About Dropizo
+      </h2>
+      <p
+        class="text-lg text-gray-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto"
+      >
+        Dropizo is your all-in-one downloader designed to simplify media
+        downloading from all popular platforms including YouTube, Instagram,
+        Facebook, Twitter, TikTok, Pinterest and more.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-gray-600">
+        <div>
+          <h3 class="text-2xl font-bold text-blue-700 mb-3">Our Mission</h3>
+          <p class="text-base leading-relaxed">
+            We aim to provide a seamless and fast downloading experience to
+            users around the world, ensuring privacy, speed, and ease-of-use
+            across all devices.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-blue-700 mb-3">Why Dropizo?</h3>
+          <ul class="list-disc list-inside space-y-2 text-base">
+            <li>Supports multiple platforms</li>
+            <li>No annoying ads or redirects</li>
+            <li>Fast & safe downloads</li>
+            <li>Clean, responsive UI</li>
+            <li>Completely free to use</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-14 text-center">
+        <h4 class="text-xl font-semibold text-gray-700 mb-2">
+          Have questions or suggestions?
+        </h4>
+        <p class="text-sm text-gray-600">
+          Feel free to
+          <a href="contact.html" class="text-blue-600 hover:underline"
+            >contact us</a
+          >
+          anytime.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-tr from-blue-50 to-white mt-20 px-6 py-12 shadow-inner"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left"
+      >
+        <div>
+          <h4 class="text-2xl font-bold text-blue-700 mb-2">Dropizo</h4>
+          <p class="text-sm text-gray-600">
+            Your trusted media downloader. Fast, simple, and reliable.
+          </p>
+        </div>
+        <div>
+          <h5 class="font-semibold text-gray-700 mb-2">Quick Links</h5>
+          <a
+            href="privacy.html"
+            class="block text-sm text-gray-500 hover:text-blue-600"
+            >Privacy Policy</a
+          >
+          <a
+            href="terms.html"
+            class="block text-sm text-gray-500 hover:text-blue-600"
+            >Terms of Service</a
+          >
+          <a
+            href="about.html"
+            class="block text-sm text-gray-500 hover:text-blue-600"
+            >About Us</a
+          >
+        </div>
+        <div>
+          <h5 class="font-semibold text-gray-700 mb-2">Follow Us</h5>
+          <p class="text-sm text-gray-500">Coming Soon: Social Links</p>
+        </div>
+      </div>
+      <p class="mt-10 text-center text-xs text-gray-400">
+        © 2025 Dropizo. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
