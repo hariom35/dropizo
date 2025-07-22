@@ -40,9 +40,10 @@ def download_video():
 
     return render_template('success.html')
 
+
 if __name__ == '__main__':
     if not os.path.exists("downloads"):
         os.makedirs("downloads")
 
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)  # Don't add debug=True here
+    app.run(host='0.0.0.0', port=port)
