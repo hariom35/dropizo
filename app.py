@@ -35,11 +35,13 @@ def download_video():
         'outtmpl': 'downloads/%(title)s.%(ext)s',
     }
 
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        info = ydl.extract_info(video_url, download=True)
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(video_url, download=True)
+    except Exception as e:
+        return f"Download failed: {str(e)}", 500
 
     return render_template('success.html')
-
 
 if __name__ == '__main__':
     if not os.path.exists("downloads"):
