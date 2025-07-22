@@ -44,8 +44,11 @@ def download_video():
     # After download, render success page
     return render_template('success.html')
 
-
 if __name__ == '__main__':
+    import os
+
     if not os.path.exists("downloads"):
         os.makedirs("downloads")
-    app.run(debug=True)
+
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
