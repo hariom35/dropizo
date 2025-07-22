@@ -1,3 +1,25 @@
+from flask import Flask, request, send_file, render_template
+import os
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def home():
+    return render_template("index.html")
+
+@app.route('/download', methods=['POST'])
+def download():
+    video_url = request.form['video_url']
+    if not video_url:
+        return "No URL provided", 400
+
+    # Your download logic here (YouTube DL or pytube etc.)
+    # For testing:
+    print("URL received:", video_url)
+
+    # Dummy response
+    return f"You entered: {video_url}"
+
 from flask import Flask, render_template, request
 import yt_dlp
 import os
@@ -25,29 +47,14 @@ def terms():
     return render_template('terms.html')
 
 @app.route('/download', methods=['POST'])
-def download_video():
-    try:
-        video_url = request.form['video_url']
-        if not video_url:
-            return "URL is required!", 400
-
-        ydl_opts = {
-            'format': 'best',
-            'outtmpl': 'downloads/%(title)s.%(ext)s',
-        }
-
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(video_url, download=True)
-
-        return render_template('success.html')
-    
-    except Exception as e:
-        return f"Error: {str(e)}", 500
+def download():
+    video_url = request.form.get('video_url')
+    print("Got URL:", video_url)
+    ...
 
 
-if __name__ == '__main__':
-    if not os.path.exists("downloads"):
-        os.makedirs("downloads")
-
+if __name__ == "__main__":
+    import os
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host="0.0.0.0", port=port)
+
