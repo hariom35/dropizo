@@ -71,15 +71,11 @@
   <div class="bg-white shadow-lg rounded-xl p-6 sm:p-8 w-full max-w-2xl">
     <h2 class="text-xl sm:text-2xl font-semibold text-center mb-6">Paste YouTube your media link below</h2>
 
-    <form method="POST" action="https://your-flask-backend.onrender.com/download" onsubmit="showSpinner()" class="flex flex-col sm:flex-row items-center gap-4 mb-6">
-      <input type="text" name="video_url" placeholder="https://example.com/your-link"
-        class="flex-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        required>
-      <button type="submit"
-        class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-5 py-2 rounded-md font-medium hover:opacity-90 transition duration-200">
-        Download
-      </button>
-    </form>
+    <form action="/download" method="POST">
+    <input type="text" name="video_url" placeholder="Enter YouTube URL" required>
+    <button type="submit">Download</button>
+</form>
+
 
     <!-- Spinner -->
     <div id="spinner" class="text-center hidden">

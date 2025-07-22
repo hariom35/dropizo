@@ -26,22 +26,24 @@ def terms():
 
 @app.route('/download', methods=['POST'])
 def download_video():
-    video_url = request.form['video_url']
-    if not video_url:
-        return "URL is required!", 400
-
-    ydl_opts = {
-        'format': 'best',
-        'outtmpl': 'downloads/%(title)s.%(ext)s',
-    }
-
     try:
+        video_url = request.form['video_url']
+        if not video_url:
+            return "URL is required!", 400
+
+        ydl_opts = {
+            'format': 'best',
+            'outtmpl': 'downloads/%(title)s.%(ext)s',
+        }
+
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(video_url, download=True)
-    except Exception as e:
-        return f"Download failed: {str(e)}", 500
 
-    return render_template('success.html')
+        return render_template('success.html')
+    
+    except Exception as e:
+        return f"Error: {str(e)}", 500
+
 
 if __name__ == '__main__':
     if not os.path.exists("downloads"):
