@@ -1,15 +1,13 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 import yt_dlp
 import os
 
 app = Flask(__name__)
 
-# Home page
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# Other static pages
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -26,7 +24,6 @@ def privacy():
 def terms():
     return render_template('terms.html')
 
-# YouTube download logic
 @app.route('/download', methods=['POST'])
 def download_video():
     video_url = request.form['video_url']
@@ -41,14 +38,11 @@ def download_video():
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(video_url, download=True)
 
-    # After download, render success page
     return render_template('success.html')
 
 if __name__ == '__main__':
-    import os
-
     if not os.path.exists("downloads"):
         os.makedirs("downloads")
 
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port)  # Don't add debug=True here
