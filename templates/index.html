@@ -25,11 +25,11 @@
     </div>
     <!-- Desktop Nav -->
     <nav class="hidden md:flex gap-6 text-gray-600 font-medium">
-      <a class='hover:text-blue-600 transition-colors' href='/'>Home</a>
-      <a class='hover:text-blue-600 transition-colors' href='/about'>About</a>
-      <a class='hover:text-blue-600 transition-colors' href='/contact'>Contact</a>
-      <a class='hover:text-blue-600 transition-colors' href='/privacy'>Privacy</a>
-      <a class='hover:text-blue-600 transition-colors' href='/terms'>Terms</a>
+      <a class='hover:text-blue-600 transition-colors' href='index.html'>Home</a>
+      <a class='hover:text-blue-600 transition-colors' href='about.html'>About</a>
+      <a class='hover:text-blue-600 transition-colors' href='contact.html'>Contact</a>
+      <a class='hover:text-blue-600 transition-colors' href='privacy.html'>Privacy</a>
+      <a class='hover:text-blue-600 transition-colors' href='terms.html'>Terms</a>
     </nav>
     <!-- Mobile Menu Button -->
     <div class="md:hidden">
@@ -43,11 +43,11 @@
   </div>
   <!-- Mobile Nav Menu -->
   <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 bg-white border-t border-gray-100 shadow">
-    <a class='block py-2 text-gray-700 hover:text-blue-600' href='/'>Home</a>
-    <a class='block py-2 text-gray-700 hover:text-blue-600' href='/about'>About</a>
-    <a class='block py-2 text-gray-700 hover:text-blue-600' href='/contact'>Contact</a>
-    <a class='block py-2 text-gray-700 hover:text-blue-600' href='/privacy'>Privacy</a>
-    <a class='block py-2 text-gray-700 hover:text-blue-600' href='/terms'>Terms</a>
+    <a class='block py-2 text-gray-700 hover:text-blue-600' href='index.html'>Home</a>
+    <a class='block py-2 text-gray-700 hover:text-blue-600' href='about.html'>About</a>
+    <a class='block py-2 text-gray-700 hover:text-blue-600' href='contact.html'>Contact</a>
+    <a class='block py-2 text-gray-700 hover:text-blue-600' href='privacy.html'>Privacy</a>
+    <a class='block py-2 text-gray-700 hover:text-blue-600' href='terms.html'>Terms</a>
   </div>
 </header>
 
@@ -67,39 +67,39 @@
 
 
   <!-- Input Section -->
-   <div class="flex items-center justify-center bg-blue-50 px-4 py-8">
-  <div class="bg-white shadow-lg rounded-xl p-6 sm:p-8 w-full max-w-2xl">
-    <h2 class="text-xl sm:text-2xl font-semibold text-center mb-6">Paste YouTube your media link below</h2>
+   
+  <div class="flex-grow flex items-center justify-center px-4 py-12">
+    <div class="bg-white shadow-lg rounded-xl p-6 sm:p-8 w-full max-w-2xl">
+      <h2 class="text-xl sm:text-2xl font-semibold text-center mb-6">Paste your media link below</h2>
 
-      <form action="/download" method="POST" onsubmit="showSpinner()" class="flex flex-col sm:flex-row gap-4 mt-4">
-      <input type="text" name="video_url" placeholder="Enter YouTube URL" required
-            class="border border-gray-300 rounded-lg px-4 py-2 flex-grow" />
-      <button type="submit"
-              class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-        Download
-      </button>
-    </form>
+      <!-- Form -->
+      <form method="POST" action="/download" onsubmit="showSpinner()" class="flex flex-col sm:flex-row items-center gap-4 mb-6">
+        <input type="text" name="video_url" placeholder="https://example.com/your-link"
+          class="flex-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          required>
+        <button type="submit"
+          class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-5 py-2 rounded-md font-medium hover:opacity-90 transition duration-200">
+          Download
+        </button>
+      </form>
 
+      <!-- Spinner -->
+      <div id="spinner" class="text-center hidden">
+        <div class="animate-spin rounded-full h-8 w-8 border-t-4 border-blue-500 border-solid mx-auto"></div>
+        <p class="text-gray-600 mt-2 text-sm">Downloading... Please wait</p>
+      </div>
 
-
-
-    <!-- Spinner -->
-    <div id="spinner" class="text-center hidden">
-      <div class="animate-spin rounded-full h-8 w-8 border-t-4 border-blue-500 border-solid mx-auto"></div>
-      <p class="text-gray-600 mt-2 text-sm">Downloading... Please wait</p>
-    </div>
-
-    <!-- Platform Buttons -->
-    <div class="mt-6 flex flex-wrap justify-center gap-3">
-      <span class="bg-blue-100 text-blue-800 px-4 py-1 rounded-full font-medium text-sm">YouTube</span>
-      <span class="bg-pink-100 text-pink-600 px-4 py-1 rounded-full font-medium text-sm">Instagram</span>
-      <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full font-medium text-sm">Facebook</span>
-      <span class="bg-blue-100 text-sky-600 px-4 py-1 rounded-full font-medium text-sm">Twitter</span>
-      <span class="bg-green-100 text-green-600 px-4 py-1 rounded-full font-medium text-sm">TikTok</span>
-      <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full font-medium text-sm">Pinterest</span>
+      <!-- Platform Tags -->
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <span class="bg-blue-100 text-blue-800 px-4 py-1 rounded-full font-medium text-sm">YouTube</span>
+        <span class="bg-pink-100 text-pink-600 px-4 py-1 rounded-full font-medium text-sm">Instagram</span>
+        <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full font-medium text-sm">Facebook</span>
+        <span class="bg-blue-100 text-sky-600 px-4 py-1 rounded-full font-medium text-sm">Twitter</span>
+        <span class="bg-green-100 text-green-600 px-4 py-1 rounded-full font-medium text-sm">TikTok</span>
+        <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full font-medium text-sm">Pinterest</span>
+      </div>
     </div>
   </div>
-</div>
 
 <!-- Spinner JS -->
 <script>
