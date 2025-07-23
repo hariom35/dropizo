@@ -55,10 +55,8 @@ def download():
         stream.download("static/downloads")
         return render_template("success.html", title=yt.title)
     except Exception as e:
-        print("Download error:", e)   # ← ye line ensure karo
-        return render_template("error.html")
-
-
+        print("Download error:", e)
+        return render_template("error.html", error=str(e))
 
 # Serve file download
 @app.route('/download-file/<filename>')
