@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dropizo - All-in-One Downloader</title>
   <meta name="description" content="Dropizo - Fast & Easy All-in-One Media Downloader">
-  <link rel="icon" href="assets/logo.png" />
+  <link rel="icon" href="../static/assets/logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -20,7 +20,7 @@
 <header class="bg-white shadow-md sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
     <div class="flex items-center gap-3">
-      <img src="assets/logo.png" alt="Dropizo Logo" class="w-10 h-10" />
+      <img src="../static/assets/logo.png" alt="Dropizo Logo" class="w-10 h-10" />
       <h1 class="text-2xl font-extrabold text-blue-700 tracking-tight">Dropizo</h1>
     </div>
     <!-- Desktop Nav -->
@@ -67,39 +67,39 @@
 
 
   <!-- Input Section -->
-   
-  <div class="flex-grow flex items-center justify-center px-4 py-12">
-    <div class="bg-white shadow-lg rounded-xl p-6 sm:p-8 w-full max-w-2xl">
-      <h2 class="text-xl sm:text-2xl font-semibold text-center mb-6">Paste your media link below</h2>
+   <div class="flex items-center justify-center bg-blue-50 px-4 py-8">
+  <div class="bg-white shadow-lg rounded-xl p-6 sm:p-8 w-full max-w-2xl">
+    <h2 class="text-xl sm:text-2xl font-semibold text-center mb-6">Paste YouTube your media link below</h2>
 
-      <!-- Form -->
-      <form method="POST" action="/download" onsubmit="showSpinner()" class="flex flex-col sm:flex-row items-center gap-4 mb-6">
-        <input type="text" name="video_url" placeholder="https://example.com/your-link"
-          class="flex-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-          required>
-        <button type="submit"
-          class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-5 py-2 rounded-md font-medium hover:opacity-90 transition duration-200">
-          Download
-        </button>
-      </form>
+      <form action="/download" method="POST" onsubmit="showSpinner()" class="flex flex-col sm:flex-row gap-4 mt-4">
+      <input type="text" name="video_url" placeholder="Enter YouTube URL" required
+            class="border border-gray-300 rounded-lg px-4 py-2 flex-grow" />
+      <button type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+        Download
+      </button>
+    </form>
 
-      <!-- Spinner -->
-      <div id="spinner" class="text-center hidden">
-        <div class="animate-spin rounded-full h-8 w-8 border-t-4 border-blue-500 border-solid mx-auto"></div>
-        <p class="text-gray-600 mt-2 text-sm">Downloading... Please wait</p>
-      </div>
 
-      <!-- Platform Tags -->
-      <div class="mt-6 flex flex-wrap justify-center gap-3">
-        <span class="bg-blue-100 text-blue-800 px-4 py-1 rounded-full font-medium text-sm">YouTube</span>
-        <span class="bg-pink-100 text-pink-600 px-4 py-1 rounded-full font-medium text-sm">Instagram</span>
-        <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full font-medium text-sm">Facebook</span>
-        <span class="bg-blue-100 text-sky-600 px-4 py-1 rounded-full font-medium text-sm">Twitter</span>
-        <span class="bg-green-100 text-green-600 px-4 py-1 rounded-full font-medium text-sm">TikTok</span>
-        <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full font-medium text-sm">Pinterest</span>
-      </div>
+
+
+    <!-- Spinner -->
+    <div id="spinner" class="text-center hidden">
+      <div class="animate-spin rounded-full h-8 w-8 border-t-4 border-blue-500 border-solid mx-auto"></div>
+      <p class="text-gray-600 mt-2 text-sm">Downloading... Please wait</p>
+    </div>
+
+    <!-- Platform Buttons -->
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <span class="bg-blue-100 text-blue-800 px-4 py-1 rounded-full font-medium text-sm">YouTube</span>
+      <span class="bg-pink-100 text-pink-600 px-4 py-1 rounded-full font-medium text-sm">Instagram</span>
+      <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full font-medium text-sm">Facebook</span>
+      <span class="bg-blue-100 text-sky-600 px-4 py-1 rounded-full font-medium text-sm">Twitter</span>
+      <span class="bg-green-100 text-green-600 px-4 py-1 rounded-full font-medium text-sm">TikTok</span>
+      <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full font-medium text-sm">Pinterest</span>
     </div>
   </div>
+</div>
 
 <!-- Spinner JS -->
 <script>
