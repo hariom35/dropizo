@@ -45,18 +45,19 @@ def download_video(video_url):
         return None
 
 # Form Submission Route
-@app.route('/download', methods=['POST'])
+@app.route("/download", methods=["POST"])
 def download():
-    video_url = request.form.get('url')
-    if not video_url:
-        return render_template('error.html', message="No URL provided.")
+    try:
+        video_url = request.form["video_url"]
+        yt = YouTube(video_url)
+        stream = yt.streams.get_highest_resolution()
+        stream.download("static/downloads")
+        return render_template("success.html", title=yt.title)
+    except Exception as e:
+        print("Download error:", e)   # ← ye line ensure karo
+        return render_template("error.html")
 
-    file_path = download_video(video_url)
-    if file_path and os.path.exists(file_path):
-        filename = os.path.basename(file_path)
-        return render_template('success.html', filename=filename)
-    else:
-        return render_template('error.html', message="Could not download the video. Try a different link.")
+
 
 # Serve file download
 @app.route('/download-file/<filename>')
