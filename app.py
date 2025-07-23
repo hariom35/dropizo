@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_from_directory
 import yt_dlp
 import os
+import traceback
 
 app = Flask(__name__)
 
@@ -39,26 +40,36 @@ def download_video(video_url):
             filename = ydl.prepare_filename(info)
             return filename
     except Exception as e:
-        print(f"Error in download_video: {e}")
+        print("Error in download_video:")
+        traceback.print_exc()
         return None
 
-# Download Route
+# Form Submission Route
 @app.route('/download', methods=['POST'])
 def download():
-    video_url = request.form['url']
+    video_url = request.form.get('url')
+    if not video_url:
+        return render_template('error.html', message="No URL provided.")
+
     file_path = download_video(video_url)
-
-    from flask import send_from_directory
-
     if file_path and os.path.exists(file_path):
-        return render_template('success.html', filename=os.path.basename(file_path))
+        filename = os.path.basename(file_path)
+        return render_template('success.html', filename=filename)
     else:
         return render_template('error.html', message="Could not download the video. Try a different link.")
 
+# Serve file download
+@app.route('/download-file/<filename>')
+def download_file(filename):
+    file_path = os.path.join('downloads', filename)
+    if os.path.exists(file_path):
+        return send_from_directory('downloads', filename, as_attachment=True)
+    else:
+        return "File not found."
 
-# Run Flask
+# Run Flask App
 if __name__ == '__main__':
     if not os.path.exists("downloads"):
         os.makedirs("downloads")
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
